@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: practice-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: infra_practice
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - "./.docker/db/mysql_data:/var/lib/mysql"
+      - "./.docker/db/config/my.cnf:/etc/mysql/my.cnf"
