@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"infra-practice/pkg/presentation/controller"
 
 	"github.com/gin-gonic/gin"
 )
@@ -10,16 +11,16 @@ type Server struct {
 	Engine *gin.Engine
 }
 
-func NewServer() *Server {
+func NewServer(
+	sampleController *controller.SampleController,
+) *Server {
 	router := &Server{
 		Engine: gin.New(),
 	}
 
 	sample := router.Engine.Group("/sample")
 	{
-		sample.GET("/hello", func(ctx *gin.Context) {
-
-		})
+		sample.GET("/hello", sampleController.Hello)
 	}
 
 	return router
