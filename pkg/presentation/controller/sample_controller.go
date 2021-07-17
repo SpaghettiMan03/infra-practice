@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"fmt"
+	"infra-practice/pkg/presentation/response"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,7 +9,12 @@ import (
 type SampleController struct{}
 
 func (c *SampleController) Hello(ctx *gin.Context) {
-	fmt.Println("Hello!")
+	ctx.JSON(
+		200,
+		response.HelloResponse{
+			Hello: "HelloWorld!!",
+		},
+	)
 }
 
 func NewSampleController() *SampleController {
