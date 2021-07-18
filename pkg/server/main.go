@@ -6,7 +6,7 @@ func main() {
 		panic(err)
 	}
 
-	err = server.Run("3000")
+	err = server.Run("8080")
 	if err != nil {
 		panic(err)
 	}
